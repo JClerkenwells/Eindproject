@@ -1,1 +1,9 @@
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\bin\Debug\LaRustique.exe.config
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\bin\Debug\LaRustique.exe
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\bin\Debug\LaRustique.pdb
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.csprojResolveAssemblyReference.cache
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Form1.resources
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Properties.Resources.resources
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.csproj.GenerateResource.Cache
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.exe
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.pdb
