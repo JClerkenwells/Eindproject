@@ -79,10 +79,10 @@ namespace LaRustique
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            String SERVER = "localhost";
-            String DATABASE = "larustique";
-            String UID = "root";
-            String PASSWORD = "";
+            String SERVER = "sql11.freesqldatabase.com";
+            String DATABASE = "sql11227545";
+            String UID = "sql11227545";
+            String PASSWORD = "Se57gU8Es2";
 
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
 
@@ -104,7 +104,7 @@ namespace LaRustique
 
             while (myReader.Read())
             {
-                if (myReader[2].ToString().ToLower() == txtUsername.Text.ToLower() && myReader[3].ToString().ToLower() == txtPassword.Text.ToLower())
+                if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && myReader[2].ToString() == txtPassword.Text)
                 {
                     MessageBox.Show("Kill the jews");
                 }
