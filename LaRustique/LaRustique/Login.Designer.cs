@@ -1,6 +1,6 @@
 ﻿namespace LaRustique
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -59,8 +59,9 @@
             this.aButton.TabIndex = 0;
             this.aButton.Text = "Log in";
             this.aButton.UseVisualStyleBackColor = true;
+            this.aButton.Click += new System.EventHandler(this.aButton_Click);
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +69,7 @@
             this.Controls.Add(this.aButton);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Log In";
             this.ResumeLayout(false);
             this.PerformLayout();

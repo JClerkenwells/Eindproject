@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +47,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Factuur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Factuur.Designer.cs">
+      <DependentUpon>Factuur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Klanten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Klanten.Designer.cs">
+      <DependentUpon>Klanten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plattegrond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plattegrond.Designer.cs">
+      <DependentUpon>Plattegrond.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Reserveringen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserveringen.Designer.cs">
+      <DependentUpon>Reserveringen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Startpagina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startpagina.Designer.cs">
+      <DependentUpon>Startpagina.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Factuur.resx">
+      <DependentUpon>Factuur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Klanten.resx">
+      <DependentUpon>Klanten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plattegrond.resx">
+      <DependentUpon>Plattegrond.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +106,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reserveringen.resx">
+      <DependentUpon>Reserveringen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startpagina.resx">
+      <DependentUpon>Startpagina.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

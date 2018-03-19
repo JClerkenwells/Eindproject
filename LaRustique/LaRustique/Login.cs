@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace LaRustique
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             //Zet de placeholders van gebruikersnaam en wachtwoord
@@ -70,6 +72,48 @@ namespace LaRustique
                 txtPassword.UseSystemPasswordChar = false;
                 txtPassword.Text = "Wachtwoord";
             }
+        }
+
+        private void aButton_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            String SERVER = "localhost";
+            String DATABASE = "larustique";
+            String UID = "root";
+            String PASSWORD = "";
+
+            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+
+            builder.Server = SERVER;
+            builder.Database = DATABASE;
+            builder.UserID = UID;
+            builder.Password = PASSWORD;
+
+            string connectionbuilder = builder.ToString();
+
+            //builder = null;
+
+            MySqlConnection con = new MySqlConnection(connectionbuilder);
+
+            string sql = "SELECT * FROM gebruikers";
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataReader myReader = cmd.ExecuteReader();
+
+            while (myReader.Read())
+            {
+                if (myReader[2].ToString().ToLower() == txtUsername.Text.ToLower() && myReader[3].ToString().ToLower() == txtPassword.Text.ToLower())
+                {
+                    MessageBox.Show("Kill the jews");
+                }
+                else
+                {
+                    MessageBox.Show("Dont kill the jews");
+                }
+            }
+            con.Close();
         }
     }
 }
