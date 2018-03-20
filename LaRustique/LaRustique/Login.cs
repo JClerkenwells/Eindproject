@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace LaRustique
@@ -17,10 +16,11 @@ namespace LaRustique
         public Login()
         {
             InitializeComponent();
+            #region Placeholders
             //Zet de placeholders van gebruikersnaam en wachtwoord
             txtUsername.Font = new Font(txtUsername.Font, FontStyle.Italic);
             txtUsername.ForeColor = Color.Gray;
-            txtUsername.Text = "Gebruikersnaam";
+            txtUsername.Text = "E-Mail";
 
             //Wachtwoord
             txtPassword.Font = new Font(txtPassword.Font, FontStyle.Italic);
@@ -31,7 +31,7 @@ namespace LaRustique
         private void txtUsername_Enter(object sender, EventArgs e)
         {
             //Verwijder placeholder als txtbox geselecteerd is
-            if (txtUsername.Text == "Gebruikersnaam")
+            if (txtUsername.Text == "E-Mail")
             {
                 txtUsername.Clear();
                 txtUsername.ForeColor = Color.Black;
@@ -46,7 +46,7 @@ namespace LaRustique
             {
                 txtUsername.Font = new Font(txtUsername.Font, FontStyle.Italic);
                 txtUsername.ForeColor = Color.Gray;
-                txtUsername.Text = "Gebruikersnaam";
+                txtUsername.Text = "E-Mail";
             }
         }
 
@@ -73,9 +73,11 @@ namespace LaRustique
                 txtPassword.Text = "Wachtwoord";
             }
         }
+        #endregion
 
         private void aButton_Click(object sender, EventArgs e)
         {
+            #region Database inloggen
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
@@ -93,7 +95,7 @@ namespace LaRustique
 
             string connectionbuilder = builder.ToString();
 
-            //builder = null;
+            builder = null;
 
             MySqlConnection con = new MySqlConnection(connectionbuilder);
 
@@ -106,14 +108,24 @@ namespace LaRustique
             {
                 if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && myReader[2].ToString() == txtPassword.Text)
                 {
-                    MessageBox.Show("Kill the jews");
+                    Startpagina x = new Startpagina(myReader[1].ToString(), myReader[3].ToString(), Convert.ToBoolean(myReader[4]));
+                    this.Hide();
+                    x.ShowDialog();
+                    this.Close();
                 }
-                else
+                //Als wachtwoord fout is
+                else if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && txtPassword.Text != myReader[2].ToString())
                 {
-                    MessageBox.Show("Dont kill the jews");
+                    MessageBox.Show("Wachtwoord incorrect");
+                }
+                //Als email fout is
+                else if (myReader[3].ToString().ToLower() != txtUsername.Text.ToLower() && txtPassword.Text == myReader[2].ToString())
+                {
+                    MessageBox.Show("E-Mail incorrect");
                 }
             }
-            con.Close();
+            //con.Close();
+            #endregion
         }
     }
 }
