@@ -81,43 +81,42 @@ namespace LaRustique
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-
-            builder.Server = Database.SERVER;
-            builder.Database = Database.DATABASE;
-            builder.UserID = Database.UID;
-            builder.Password = Database.PASSWORD;
-
-            MySqlConnection con = new MySqlConnection(builder.ToString());
-
-            builder = null;
-
-            string sql = "SELECT * FROM gebruikers";
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, con);
-            MySqlDataReader myReader = cmd.ExecuteReader();
-
-            while (myReader.Read())
+            // Alles staat in using voor garbage collection
+            
+            
+            using (MySqlConnection con = Database.conBuilder())
             {
-                if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && myReader[2].ToString() == txtPassword.Text)
+                string sql = "SELECT * FROM gebruikers";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                using (MySqlDataReader myReader = cmd.ExecuteReader())
                 {
-                    Startpagina x = new Startpagina(myReader[1].ToString(), myReader[3].ToString(), Convert.ToBoolean(myReader[4]));
-                    this.Hide();
-                    x.ShowDialog();
-                    this.Close();
-                }
-                //Als wachtwoord fout is
-                else if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && txtPassword.Text != myReader[2].ToString())
-                {
-                    MessageBox.Show("Wachtwoord incorrect");
-                }
-                //Als email fout is
-                else if (myReader[3].ToString().ToLower() != txtUsername.Text.ToLower() && txtPassword.Text == myReader[2].ToString())
-                {
-                    MessageBox.Show("E-Mail incorrect");
+                    while (myReader.Read())
+                    {
+                        //Als wachtwoord fout is
+                        if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && txtPassword.Text != myReader[2].ToString())
+                        {
+                            MessageBox.Show("Wachtwoord incorrect");
+                        }
+
+                        //Als email fout is
+                        else if (myReader[3].ToString().ToLower() != txtUsername.Text.ToLower() && txtPassword.Text == myReader[2].ToString())
+                        {
+                            MessageBox.Show("E-Mail incorrect");
+                        }
+
+                        else if (myReader[3].ToString().ToLower() == txtUsername.Text.ToLower() && myReader[2].ToString() == txtPassword.Text)
+                        {
+                            Startpagina x = new Startpagina(myReader[1].ToString(), myReader[3].ToString(), Convert.ToBoolean(myReader[4]));
+                            this.Hide();
+                            x.ShowDialog();
+                            this.Close();
+                        }
+                    }
                 }
             }
-            //con.Close();
+                    
             #endregion
         }
     }
