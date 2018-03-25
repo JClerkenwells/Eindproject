@@ -21,7 +21,7 @@ namespace LaRustique
 
             if (admin)
             {
-                
+                werknemersMenuItem.Visible = true;
             }
         }
 
@@ -40,6 +40,14 @@ namespace LaRustique
         private void Klant_Click(object sender, EventArgs e)
         {
             Klanten x = new Klanten();
+            this.Hide();
+            x.ShowDialog();
+            this.Close();
+        }
+
+        private void werknemersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Werknemers x = new Werknemers();
             this.Hide();
             x.ShowDialog();
             this.Close();

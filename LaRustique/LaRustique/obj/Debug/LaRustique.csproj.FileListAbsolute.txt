@@ -22,10 +22,10 @@ C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Factuur.resources
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Klanten.resources
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Login.resources
-C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Plattegrond.resources
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Properties.Resources.resources
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Reserveringen.resources
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Startpagina.resources
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.csproj.GenerateResource.Cache
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.exe
 C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.pdb
+C:\Users\Bongrim\Desktop\Eindproject\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.Werknemers.resources

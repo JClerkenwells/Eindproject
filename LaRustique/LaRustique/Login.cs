@@ -81,23 +81,16 @@ namespace LaRustique
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            String SERVER = "sql11.freesqldatabase.com";
-            String DATABASE = "sql11227545";
-            String UID = "sql11227545";
-            String PASSWORD = "Se57gU8Es2";
-
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
 
-            builder.Server = SERVER;
-            builder.Database = DATABASE;
-            builder.UserID = UID;
-            builder.Password = PASSWORD;
+            builder.Server = Database.SERVER;
+            builder.Database = Database.DATABASE;
+            builder.UserID = Database.UID;
+            builder.Password = Database.PASSWORD;
 
-            string connectionbuilder = builder.ToString();
+            MySqlConnection con = new MySqlConnection(builder.ToString());
 
             builder = null;
-
-            MySqlConnection con = new MySqlConnection(connectionbuilder);
 
             string sql = "SELECT * FROM gebruikers";
             con.Open();

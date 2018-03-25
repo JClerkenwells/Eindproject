@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="Factuur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +80,12 @@
     <Compile Include="Startpagina.Designer.cs">
       <DependentUpon>Startpagina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Werknemers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Werknemers.Designer.cs">
+      <DependentUpon>Werknemers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Factuur.resx">
       <DependentUpon>Factuur.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Startpagina.resx">
       <DependentUpon>Startpagina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Werknemers.resx">
+      <DependentUpon>Werknemers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
