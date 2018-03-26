@@ -86,6 +86,12 @@
     <Compile Include="Werknemers.Designer.cs">
       <DependentUpon>Werknemers.cs</DependentUpon>
     </Compile>
+    <Compile Include="WerknemerToevoegen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WerknemerToevoegen.Designer.cs">
+      <DependentUpon>WerknemerToevoegen.cs</DependentUpon>
+    </Compile>
     <Compile Include="WerknemerWijzig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Werknemers.resx">
       <DependentUpon>Werknemers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WerknemerToevoegen.resx">
+      <DependentUpon>WerknemerToevoegen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WerknemerWijzig.resx">
       <DependentUpon>WerknemerWijzig.cs</DependentUpon>

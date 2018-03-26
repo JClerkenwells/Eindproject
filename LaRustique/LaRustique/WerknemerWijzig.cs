@@ -16,13 +16,14 @@ namespace LaRustique
 
         private bool _admin;
 
-        public WerknemerWijzig(string ID, string naam, string email, bool admin)
+        public WerknemerWijzig(string ID, string naam, string tel, string email, bool admin)
         {
             InitializeComponent();
 
             //Zet waardes in textbox
             txtID.Text = ID;
             txtNaam.Text = naam;
+            txtTel.Text = tel;
             txtEmail.Text = email;
             if (admin) { aRbAdminJa.Checked = true; }
             else { aRbAdminNee.Checked = true; }
@@ -35,34 +36,45 @@ namespace LaRustique
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            string naam, email;
-            bool admin;
+            string naam, email, tel;
+            int admin;
 
             //Zet nieuwe waardes in variables
             naam = txtNaam.Text;
             email = txtEmail.Text;
-            if (aRbAdminJa.Checked) { admin = true; }
-            else { admin = false; }
+            tel = txtTel.Text;
+
+            if (aRbAdminJa.Checked) { admin = 1; }
+            else { admin = 0; }
 
             using (MySql.Data.MySqlClient.MySqlConnection con = Database.conBuilder())
             {
-                string sql = string.Format("UPDATE 'gebruikers' SET 'naam' = '{0}', 'email' = '{1}', 'admin' = '{2}' WHERE 'gebruikers'.'ID' = {3}", naam, email, admin, _ID);
-                con.Open();
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, con);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    //Als update is uitgevoerd, msgbox om success te melden en scherm te sluiten
-                    DialogResult result = MessageBox.Show("Wijziging succesvol !", "Gegevens succesvol gewijzigd", MessageBoxButtons.OK);
-                    if(result == DialogResult.OK)
-                    {
-                        this.Close();
-                    }
+                    con.Open();
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show("Er is iets fout gegaan");
                     Console.WriteLine(ex.Data);
+                }
+
+                string sql = "UPDATE gebruikers SET naam = @naam, email = @email, tel = @tel, admin = @admin WHERE gebruikers.ID = @ID";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, con);
+                //Parameters
+                cmd.Parameters.AddWithValue("@naam", naam);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@tel", tel);
+                cmd.Parameters.AddWithValue("@admin", admin);
+                cmd.Parameters.AddWithValue("@ID", _ID);
+                //Voer de query uit
+                cmd.ExecuteNonQuery();
+                //Als update is uitgevoerd, msgbox om success te melden en scherm te sluiten
+                DialogResult result = MessageBox.Show("Wijziging succesvol !", "Gegevens succesvol gewijzigd", MessageBoxButtons.OK);
+                if (result == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
         }

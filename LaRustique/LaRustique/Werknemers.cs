@@ -13,12 +13,18 @@ namespace LaRustique
 {
     public partial class Werknemers : Form
     {
-        private string _ID, _naam, _email, _admin;
+        private string _ID, _naam, _email, _tel, _admin;
         public Werknemers()
         {
             InitializeComponent();
             laadWerknemersLb(aLbWerknemers);
             aLbWerknemers.Refresh();
+        }
+
+        private void btnWerknmrToevoegen_Click(object sender, EventArgs e)
+        {
+            WerknemerToevoegen x = new WerknemerToevoegen();
+            x.ShowDialog();
         }
 
         private void logUitMenuItem_Click(object sender, EventArgs e)
@@ -40,14 +46,14 @@ namespace LaRustique
         {
             using (MySqlConnection con = Database.conBuilder())
             {
-                string sql = "SELECT ID, naam, email, admin FROM gebruikers";
+                string sql = "SELECT naam FROM gebruikers";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 using (MySqlDataReader myReader = cmd.ExecuteReader())
                 {
                     while (myReader.Read())
                     {
-                        lBox.Items.Add(myReader[1]);
+                        lBox.Items.Add(myReader[0]);
                     }
                 }
                 return lBox;
@@ -56,12 +62,26 @@ namespace LaRustique
 
         private void btnLaadGegevens_Click(object sender, EventArgs e)
         {
+            string naam;
+            //Buttons worden pas zichtbaar als een werknemer is geselecteerd
             aGbGegevens.Visible = true;
-            string naam = aLbWerknemers.SelectedItem.ToString();
+            btnWijzig.Visible = true;
+            btnVerwijder.Visible = true;
+            
+            //Naam krijgt pas een waarde als een item is geselecteerd
+            try
+            {
+                naam = aLbWerknemers.SelectedItem.ToString();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
 
             using (MySqlConnection con = Database.conBuilder())
             {
-                string sql = string.Format("SELECT ID, naam, email, admin FROM gebruikers WHERE naam = '{0}'", naam);
+                string sql = string.Format("SELECT ID, naam, email, tel, admin FROM gebruikers WHERE naam = '{0}'", naam);
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, con);
 
@@ -72,6 +92,7 @@ namespace LaRustique
                         txtID.Text = myReader["ID"].ToString();
                         txtNaam.Text = myReader["naam"].ToString();
                         txtEmail.Text = myReader["email"].ToString();
+                        txtTel.Text = myReader["tel"].ToString();
 
                         //Als admin ipv 0 / 1 waardes Ja / Nee
                         if (myReader["admin"].Equals(true)) { txtAdmin.Text = "Ja"; }
@@ -82,6 +103,7 @@ namespace LaRustique
                         _naam = myReader["naam"].ToString();
                         _email = myReader["email"].ToString();
                         _admin = myReader["admin"].ToString();
+                        _tel = myReader["tel"].ToString();
                     }
                 }
             }
@@ -89,12 +111,13 @@ namespace LaRustique
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            WerknemerWijzig x = new WerknemerWijzig(_ID, _naam, _email, Convert.ToBoolean(_admin));
+            WerknemerWijzig x = new WerknemerWijzig(_ID, _naam, _tel, _email, Convert.ToBoolean(_admin));
             x.ShowDialog();
 
             if (x.DialogResult == DialogResult.OK)
             {
-                this.Refresh();
+                aLbWerknemers.Items.Clear();
+                laadWerknemersLb(aLbWerknemers);
             }
         }
     }

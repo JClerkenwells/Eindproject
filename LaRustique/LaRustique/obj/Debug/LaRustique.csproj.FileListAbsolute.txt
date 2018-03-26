@@ -45,3 +45,4 @@ C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.
 C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.exe
 C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.pdb
 C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.WerknemerWijzig.resources
+C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.WerknemerToevoegen.resources

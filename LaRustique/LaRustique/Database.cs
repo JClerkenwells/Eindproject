@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace LaRustique
 {
@@ -31,6 +32,24 @@ namespace LaRustique
 
             builder = null;
             return con;
+        }
+
+        public static byte[] CreateSalt(int size)
+        {
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] buff = new byte[size];
+            rng.GetBytes(buff);
+
+            return buff;
+        }
+
+        public byte[] GenerateHash(string input, string salt)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
+            SHA256Managed shaHash = new SHA256Managed();
+            byte[] hash = shaHash.ComputeHash(bytes);
+
+            return hash;
         }
     }
 }

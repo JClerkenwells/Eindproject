@@ -40,8 +40,10 @@
             this.aGbWerknemers = new System.Windows.Forms.GroupBox();
             this.btnLaadGegevens = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnVerwijder = new System.Windows.Forms.Button();
             this.btnWijzig = new System.Windows.Forms.Button();
             this.aGbGegevens = new System.Windows.Forms.GroupBox();
+            this.txtAdmin = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtNaam = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -49,8 +51,9 @@
             this.aLabelAdmin = new System.Windows.Forms.Label();
             this.aLabelNaam = new System.Windows.Forms.Label();
             this.aLabelEmail = new System.Windows.Forms.Label();
-            this.btnVerwijder = new System.Windows.Forms.Button();
-            this.txtAdmin = new System.Windows.Forms.TextBox();
+            this.btnWerknmrToevoegen = new System.Windows.Forms.Button();
+            this.aLabelTel = new System.Windows.Forms.Label();
+            this.txtTel = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.aGbWerknemers.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -153,6 +156,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnWerknmrToevoegen);
             this.groupBox1.Controls.Add(this.btnVerwijder);
             this.groupBox1.Controls.Add(this.btnWijzig);
             this.groupBox1.Controls.Add(this.aGbGegevens);
@@ -162,6 +166,16 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
+            // btnVerwijder
+            // 
+            this.btnVerwijder.Location = new System.Drawing.Point(7, 20);
+            this.btnVerwijder.Name = "btnVerwijder";
+            this.btnVerwijder.Size = new System.Drawing.Size(100, 25);
+            this.btnVerwijder.TabIndex = 4;
+            this.btnVerwijder.Text = "Verwijder";
+            this.btnVerwijder.UseVisualStyleBackColor = true;
+            this.btnVerwijder.Visible = false;
+            // 
             // btnWijzig
             // 
             this.btnWijzig.Location = new System.Drawing.Point(118, 20);
@@ -170,24 +184,35 @@
             this.btnWijzig.TabIndex = 3;
             this.btnWijzig.Text = "Wijzig";
             this.btnWijzig.UseVisualStyleBackColor = true;
+            this.btnWijzig.Visible = false;
             this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
             // 
             // aGbGegevens
             // 
             this.aGbGegevens.Controls.Add(this.txtAdmin);
+            this.aGbGegevens.Controls.Add(this.txtTel);
             this.aGbGegevens.Controls.Add(this.txtEmail);
             this.aGbGegevens.Controls.Add(this.txtNaam);
             this.aGbGegevens.Controls.Add(this.txtID);
             this.aGbGegevens.Controls.Add(this.aLabelID);
             this.aGbGegevens.Controls.Add(this.aLabelAdmin);
+            this.aGbGegevens.Controls.Add(this.aLabelTel);
             this.aGbGegevens.Controls.Add(this.aLabelNaam);
             this.aGbGegevens.Controls.Add(this.aLabelEmail);
             this.aGbGegevens.Location = new System.Drawing.Point(6, 56);
             this.aGbGegevens.Name = "aGbGegevens";
-            this.aGbGegevens.Size = new System.Drawing.Size(218, 130);
+            this.aGbGegevens.Size = new System.Drawing.Size(218, 159);
             this.aGbGegevens.TabIndex = 2;
             this.aGbGegevens.TabStop = false;
             this.aGbGegevens.Visible = false;
+            // 
+            // txtAdmin
+            // 
+            this.txtAdmin.Location = new System.Drawing.Point(112, 124);
+            this.txtAdmin.Name = "txtAdmin";
+            this.txtAdmin.ReadOnly = true;
+            this.txtAdmin.Size = new System.Drawing.Size(100, 20);
+            this.txtAdmin.TabIndex = 2;
             // 
             // txtEmail
             // 
@@ -225,7 +250,7 @@
             // aLabelAdmin
             // 
             this.aLabelAdmin.AutoSize = true;
-            this.aLabelAdmin.Location = new System.Drawing.Point(6, 101);
+            this.aLabelAdmin.Location = new System.Drawing.Point(6, 127);
             this.aLabelAdmin.Name = "aLabelAdmin";
             this.aLabelAdmin.Size = new System.Drawing.Size(36, 13);
             this.aLabelAdmin.TabIndex = 1;
@@ -249,22 +274,32 @@
             this.aLabelEmail.TabIndex = 0;
             this.aLabelEmail.Text = "E-Mail";
             // 
-            // btnVerwijder
+            // btnWerknmrToevoegen
             // 
-            this.btnVerwijder.Location = new System.Drawing.Point(7, 20);
-            this.btnVerwijder.Name = "btnVerwijder";
-            this.btnVerwijder.Size = new System.Drawing.Size(100, 25);
-            this.btnVerwijder.TabIndex = 4;
-            this.btnVerwijder.Text = "Verwijder";
-            this.btnVerwijder.UseVisualStyleBackColor = true;
+            this.btnWerknmrToevoegen.Location = new System.Drawing.Point(434, 20);
+            this.btnWerknmrToevoegen.Name = "btnWerknmrToevoegen";
+            this.btnWerknmrToevoegen.Size = new System.Drawing.Size(190, 25);
+            this.btnWerknmrToevoegen.TabIndex = 5;
+            this.btnWerknmrToevoegen.Text = "Werknemer Toevoegen";
+            this.btnWerknmrToevoegen.UseVisualStyleBackColor = true;
+            this.btnWerknmrToevoegen.Click += new System.EventHandler(this.btnWerknmrToevoegen_Click);
             // 
-            // txtAdmin
+            // aLabelTel
             // 
-            this.txtAdmin.Location = new System.Drawing.Point(112, 98);
-            this.txtAdmin.Name = "txtAdmin";
-            this.txtAdmin.ReadOnly = true;
-            this.txtAdmin.Size = new System.Drawing.Size(100, 20);
-            this.txtAdmin.TabIndex = 2;
+            this.aLabelTel.AutoSize = true;
+            this.aLabelTel.Location = new System.Drawing.Point(5, 101);
+            this.aLabelTel.Name = "aLabelTel";
+            this.aLabelTel.Size = new System.Drawing.Size(22, 13);
+            this.aLabelTel.TabIndex = 0;
+            this.aLabelTel.Text = "Tel";
+            // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(112, 98);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.ReadOnly = true;
+            this.txtTel.Size = new System.Drawing.Size(100, 20);
+            this.txtTel.TabIndex = 2;
             // 
             // Werknemers
             // 
@@ -312,5 +347,8 @@
         private System.Windows.Forms.Label aLabelEmail;
         private System.Windows.Forms.Button btnVerwijder;
         private System.Windows.Forms.TextBox txtAdmin;
+        private System.Windows.Forms.Button btnWerknmrToevoegen;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.Label aLabelTel;
     }
 }

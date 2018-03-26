@@ -35,10 +35,10 @@
             this.factuurMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plattegrondMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logUitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.werknemersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aGroupBox = new System.Windows.Forms.GroupBox();
             this.aLabelEmail = new System.Windows.Forms.Label();
             this.aLabelNaam = new System.Windows.Forms.Label();
-            this.werknemersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.aGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -71,34 +71,42 @@
             // klantenMenuItem
             // 
             this.klantenMenuItem.Name = "klantenMenuItem";
-            this.klantenMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.klantenMenuItem.Size = new System.Drawing.Size(148, 22);
             this.klantenMenuItem.Text = "Klanten";
             this.klantenMenuItem.Click += new System.EventHandler(this.Klant_Click);
             // 
             // reserveringenMenuItem
             // 
             this.reserveringenMenuItem.Name = "reserveringenMenuItem";
-            this.reserveringenMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reserveringenMenuItem.Size = new System.Drawing.Size(148, 22);
             this.reserveringenMenuItem.Text = "Reserveringen";
             // 
             // factuurMenuItem
             // 
             this.factuurMenuItem.Name = "factuurMenuItem";
-            this.factuurMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.factuurMenuItem.Size = new System.Drawing.Size(148, 22);
             this.factuurMenuItem.Text = "Factuur";
             // 
             // plattegrondMenuItem
             // 
             this.plattegrondMenuItem.Name = "plattegrondMenuItem";
-            this.plattegrondMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.plattegrondMenuItem.Size = new System.Drawing.Size(148, 22);
             this.plattegrondMenuItem.Text = "Plattegrond";
             // 
             // logUitMenuItem
             // 
             this.logUitMenuItem.Name = "logUitMenuItem";
-            this.logUitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logUitMenuItem.Size = new System.Drawing.Size(148, 22);
             this.logUitMenuItem.Text = "Log Uit";
             this.logUitMenuItem.Click += new System.EventHandler(this.logUitToolStripMenuItem_Click);
+            // 
+            // werknemersMenuItem
+            // 
+            this.werknemersMenuItem.Name = "werknemersMenuItem";
+            this.werknemersMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.werknemersMenuItem.Text = "Werknemers";
+            this.werknemersMenuItem.Visible = false;
+            this.werknemersMenuItem.Click += new System.EventHandler(this.werknemersToolStripMenuItem_Click);
             // 
             // aGroupBox
             // 
@@ -127,14 +135,6 @@
             this.aLabelNaam.Size = new System.Drawing.Size(35, 13);
             this.aLabelNaam.TabIndex = 0;
             this.aLabelNaam.Text = "label1";
-            // 
-            // werknemersMenuItem
-            // 
-            this.werknemersMenuItem.Name = "werknemersMenuItem";
-            this.werknemersMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.werknemersMenuItem.Text = "Werknemers";
-            this.werknemersMenuItem.Visible = false;
-            this.werknemersMenuItem.Click += new System.EventHandler(this.werknemersToolStripMenuItem_Click);
             // 
             // Startpagina
             // 
