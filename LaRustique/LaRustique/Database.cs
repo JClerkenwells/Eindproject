@@ -34,22 +34,28 @@ namespace LaRustique
             return con;
         }
 
-        public static byte[] CreateSalt(int size)
+        public static string GenerateHash(string input)
         {
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] buff = new byte[size];
-            rng.GetBytes(buff);
-
-            return buff;
+            var crypt = new SHA256Managed();
+            var hash = new StringBuilder();
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(input));
+            foreach (byte theByte in crypto)
+            {
+                hash.Append(theByte.ToString("x2"));
+            }
+            return hash.ToString();
         }
-
-        public byte[] GenerateHash(string input, string salt)
+        public static bool checkEmailValid(string mail)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
-            SHA256Managed shaHash = new SHA256Managed();
-            byte[] hash = shaHash.ComputeHash(bytes);
-
-            return hash;
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(mail);
+                return addr.Address == mail;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

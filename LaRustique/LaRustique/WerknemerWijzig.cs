@@ -44,6 +44,13 @@ namespace LaRustique
             email = txtEmail.Text;
             tel = txtTel.Text;
 
+            //Check of email geldig is
+            if (!Database.checkEmailValid(email))
+            {
+                MessageBox.Show("Ongeldige E-mail");
+                return;
+            }
+
             if (aRbAdminJa.Checked) { admin = 1; }
             else { admin = 0; }
 

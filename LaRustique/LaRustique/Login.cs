@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace LaRustique
 {
@@ -93,6 +94,7 @@ namespace LaRustique
                 catch
                 {
                     MessageBox.Show("Er is iets misgegaan met de verbinding");
+                    return;
                 }
 
                 string sql = "SELECT * FROM gebruikers WHERE email = @mail";
@@ -115,7 +117,7 @@ namespace LaRustique
                         //    MessageBox.Show("E-Mail incorrect");
                         //}
 
-                        if (myReader["email"].ToString().ToLower() == txtUsername.Text.ToLower() && myReader["password"].ToString() == txtPassword.Text)
+                        if (myReader["email"].ToString().ToLower() == txtUsername.Text.ToLower() && myReader["password"].ToString() == Database.GenerateHash(txtPassword.Text))
                         {
                             Startpagina x = new Startpagina(myReader["naam"].ToString(), myReader["email"].ToString(), Convert.ToBoolean(myReader["admin"]));
                             this.Hide();

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Security.Cryptography;
 
 namespace LaRustique
 {
@@ -32,6 +31,21 @@ namespace LaRustique
                 Console.WriteLine(ex.Message);
                 return;
             }
+
+            //Check of wachtwoord gelijk is
+            if (txtWachtwoord.Text != txtWachtwoordCheck.Text)
+            {
+                MessageBox.Show("Wachtwoord niet gelijk");
+                return;
+            }
+            
+            //Check of email valid is
+            if (!Database.checkEmailValid(txtEmail.Text))
+            {
+                MessageBox.Show("Voer een geldige email in");
+                return;
+            }
+
             //Check of admin is
             if (aRbAdminJa.Checked) { admin = 1; }
             else { admin = 0; }
@@ -42,7 +56,7 @@ namespace LaRustique
                 string sql = "INSERT INTO gebruikers (naam, password, tel, email, admin) VALUES (@naam, @pass, @tel, @email, @admin)";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@naam", txtNaam.Text);
-                cmd.Parameters.AddWithValue("@pass", txtWachtwoord.Text);
+                cmd.Parameters.AddWithValue("@pass", Database.GenerateHash(txtWachtwoord.Text));
                 cmd.Parameters.AddWithValue("@tel", nmr);
                 cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@admin", admin);

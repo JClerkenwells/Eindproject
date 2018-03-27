@@ -10,7 +10,6 @@ C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRu
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Startpagina.resources
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Factuur.resources
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Klanten.resources
-C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Plattegrond.resources
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Reserveringen.resources
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\bin\Debug\MySql.Data.dll
 C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\bin\Debug\MySql.Data.xml
@@ -46,3 +45,6 @@ C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.
 C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.pdb
 C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.WerknemerWijzig.resources
 C:\Users\Bongrim\Desktop\Eindproject\LaRustique\LaRustique\obj\Debug\LaRustique.WerknemerToevoegen.resources
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.Werknemers.resources
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.WerknemerToevoegen.resources
+C:\Users\gebruiker\Documents\GitHub\Project\LaRustique\LaRustique\obj\Debug\LaRustique.WerknemerWijzig.resources
