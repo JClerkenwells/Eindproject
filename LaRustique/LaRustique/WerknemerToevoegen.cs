@@ -67,8 +67,7 @@ namespace LaRustique
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Er is iets fout gegaan");
-                    Console.WriteLine(ex.Message);
+                    Database.ConErrorMessage(ex);
                     return;
                 }
                 //Voer de query uit als de verbinding werkt

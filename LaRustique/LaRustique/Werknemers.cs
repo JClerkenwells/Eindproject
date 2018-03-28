@@ -68,7 +68,7 @@ namespace LaRustique
             btnWijzig.Visible = true;
             btnVerwijder.Visible = true;
             
-            //Naam krijgt pas een waarde als een item is geselecteerd
+            //Fix voor crash als naam geen waarde heeft
             try
             {
                 naam = aLbWerknemers.SelectedItem.ToString();
@@ -81,9 +81,19 @@ namespace LaRustique
 
             using (MySqlConnection con = Database.conBuilder())
             {
-                string sql = string.Format("SELECT ID, naam, email, tel, admin FROM gebruikers WHERE naam = '{0}'", naam);
-                con.Open();
+                try
+                {
+                    con.Open();
+                }
+                catch(Exception ex)
+                {
+                    Database.ConErrorMessage(ex);
+                    return;
+                }
+
+                string sql = "SELECT ID, naam, email, tel, admin FROM gebruikers WHERE naam = @naam";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@naam", naam);
 
                 using (MySqlDataReader myReader = cmd.ExecuteReader())
                 {

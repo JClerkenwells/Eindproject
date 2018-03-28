@@ -91,9 +91,9 @@ namespace LaRustique
                 {
                     con.Open();
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Er is iets misgegaan met de verbinding");
+                    Database.ConErrorMessage(ex);
                     return;
                 }
 

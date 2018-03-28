@@ -39,17 +39,40 @@ namespace LaRustique
             string naam, email, tel;
             int admin;
 
-            //Zet nieuwe waardes in variables
-            naam = txtNaam.Text;
-            email = txtEmail.Text;
-            tel = txtTel.Text;
-
-            //Check of email geldig is
-            if (!Database.checkEmailValid(email))
+            //Check of gegevens geldig zijn
+            if (!Database.checkEmailValid(txtEmail.Text))
             {
                 MessageBox.Show("Ongeldige E-mail");
                 return;
             }
+            if (txtNaam.Text == "")
+            {
+                MessageBox.Show("Vul een naam in");
+                return;
+            }
+
+            if (txtNaam.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("Naam kan geen nummers bevatten");
+                return;
+            }
+
+            try
+            {
+                //String >> int32 >> string
+                tel = Convert.ToInt32(txtTel.Text).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Voer een geldig telefoonnummer in");
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+            //Zet nieuwe waardes in variables
+            naam = txtNaam.Text;
+            email = txtEmail.Text;
+            tel = txtTel.Text;
 
             if (aRbAdminJa.Checked) { admin = 1; }
             else { admin = 0; }
@@ -62,8 +85,8 @@ namespace LaRustique
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Er is iets fout gegaan");
-                    Console.WriteLine(ex.Data);
+                    Database.ConErrorMessage(ex);
+                    return;
                 }
 
                 string sql = "UPDATE gebruikers SET naam = @naam, email = @email, tel = @tel, admin = @admin WHERE gebruikers.ID = @ID";

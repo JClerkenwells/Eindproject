@@ -1,1 +1,2 @@
-**\Eindproject\LaRustique\LaRustique\Database.cs
+Eindproject/LaRustique/LaRustiqe/bin/
+Eindproject/LaRustique/LaRustique/Database.cs
