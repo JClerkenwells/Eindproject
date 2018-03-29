@@ -39,24 +39,26 @@ namespace LaRustique
             string naam, email, tel;
             int admin;
 
-            //Check of gegevens geldig zijn
+            #region Check Gegevens
+            //Check of email geldig is
             if (!Database.checkEmailValid(txtEmail.Text))
             {
                 MessageBox.Show("Ongeldige E-mail");
                 return;
             }
+            //Check of naam leeg is
             if (txtNaam.Text == "")
             {
                 MessageBox.Show("Vul een naam in");
                 return;
             }
-
+            //Check of naam geldig is
             if (txtNaam.Text.Any(char.IsDigit))
             {
                 MessageBox.Show("Naam kan geen nummers bevatten");
                 return;
             }
-
+            //Check of tel een nummer is
             try
             {
                 //String >> int32 >> string
@@ -68,7 +70,7 @@ namespace LaRustique
                 Console.WriteLine(ex.Message);
                 return;
             }
-
+            #endregion
             //Zet nieuwe waardes in variables
             naam = txtNaam.Text;
             email = txtEmail.Text;

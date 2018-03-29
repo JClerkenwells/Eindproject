@@ -30,78 +30,311 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Klant = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.factuurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.plattegrondToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logUitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.klantenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reserveringenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.factuurMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plattegrondMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logUitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.werknemersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aGbKlanten = new System.Windows.Forms.GroupBox();
+            this.btnLaadKlant = new System.Windows.Forms.Button();
+            this.aLbKlanten = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnKlantToevoegen = new System.Windows.Forms.Button();
+            this.btnVerwijder = new System.Windows.Forms.Button();
+            this.btnWijzig = new System.Windows.Forms.Button();
+            this.aGbGegevens = new System.Windows.Forms.GroupBox();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtNaam = new System.Windows.Forms.TextBox();
+            this.aLabelTel = new System.Windows.Forms.Label();
+            this.aLabelNaam = new System.Windows.Forms.Label();
+            this.aLabelEmail = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAdres = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPostcode = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPlaats = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            this.aGbKlanten.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.aGbGegevens.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.werknemersMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(884, 24);
-            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Klant,
-            this.toolStripMenuItem2,
-            this.factuurToolStripMenuItem,
-            this.plattegrondToolStripMenuItem,
-            this.logUitToolStripMenuItem});
+            this.klantenMenuItem,
+            this.reserveringenMenuItem,
+            this.factuurMenuItem,
+            this.plattegrondMenuItem,
+            this.logUitMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.toolStripMenuItem1.Text = "Menu";
             // 
-            // Klant
+            // klantenMenuItem
             // 
-            this.Klant.Name = "Klant";
-            this.Klant.Size = new System.Drawing.Size(148, 22);
-            this.Klant.Text = "Klanten";
+            this.klantenMenuItem.Name = "klantenMenuItem";
+            this.klantenMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.klantenMenuItem.Text = "Klanten";
             // 
-            // toolStripMenuItem2
+            // reserveringenMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem2.Text = "Reserveringen";
+            this.reserveringenMenuItem.Name = "reserveringenMenuItem";
+            this.reserveringenMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reserveringenMenuItem.Text = "Reserveringen";
             // 
-            // factuurToolStripMenuItem
+            // factuurMenuItem
             // 
-            this.factuurToolStripMenuItem.Name = "factuurToolStripMenuItem";
-            this.factuurToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.factuurToolStripMenuItem.Text = "Factuur";
+            this.factuurMenuItem.Name = "factuurMenuItem";
+            this.factuurMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.factuurMenuItem.Text = "Factuur";
             // 
-            // plattegrondToolStripMenuItem
+            // plattegrondMenuItem
             // 
-            this.plattegrondToolStripMenuItem.Name = "plattegrondToolStripMenuItem";
-            this.plattegrondToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.plattegrondToolStripMenuItem.Text = "Plattegrond";
+            this.plattegrondMenuItem.Name = "plattegrondMenuItem";
+            this.plattegrondMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.plattegrondMenuItem.Text = "Plattegrond";
             // 
-            // logUitToolStripMenuItem
+            // logUitMenuItem
             // 
-            this.logUitToolStripMenuItem.Name = "logUitToolStripMenuItem";
-            this.logUitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.logUitToolStripMenuItem.Text = "Log Uit";
+            this.logUitMenuItem.Name = "logUitMenuItem";
+            this.logUitMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.logUitMenuItem.Text = "Log Uit";
+            // 
+            // werknemersMenuItem
+            // 
+            this.werknemersMenuItem.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.werknemersMenuItem.Name = "werknemersMenuItem";
+            this.werknemersMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.werknemersMenuItem.Text = "Werknemers";
+            this.werknemersMenuItem.Visible = false;
+            // 
+            // aGbKlanten
+            // 
+            this.aGbKlanten.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.aGbKlanten.Controls.Add(this.btnLaadKlant);
+            this.aGbKlanten.Controls.Add(this.aLbKlanten);
+            this.aGbKlanten.Location = new System.Drawing.Point(13, 58);
+            this.aGbKlanten.Name = "aGbKlanten";
+            this.aGbKlanten.Size = new System.Drawing.Size(202, 391);
+            this.aGbKlanten.TabIndex = 8;
+            this.aGbKlanten.TabStop = false;
+            this.aGbKlanten.Text = "Klanten";
+            // 
+            // btnLaadKlant
+            // 
+            this.btnLaadKlant.Location = new System.Drawing.Point(6, 19);
+            this.btnLaadKlant.Name = "btnLaadKlant";
+            this.btnLaadKlant.Size = new System.Drawing.Size(190, 23);
+            this.btnLaadKlant.TabIndex = 7;
+            this.btnLaadKlant.Text = "Laad Gegevens";
+            this.btnLaadKlant.UseVisualStyleBackColor = true;
+            this.btnLaadKlant.Click += new System.EventHandler(this.btnLaadKlant_Click);
+            // 
+            // aLbKlanten
+            // 
+            this.aLbKlanten.FormattingEnabled = true;
+            this.aLbKlanten.Location = new System.Drawing.Point(6, 56);
+            this.aLbKlanten.Name = "aLbKlanten";
+            this.aLbKlanten.Size = new System.Drawing.Size(153, 329);
+            this.aLbKlanten.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnKlantToevoegen);
+            this.groupBox1.Controls.Add(this.btnVerwijder);
+            this.groupBox1.Controls.Add(this.btnWijzig);
+            this.groupBox1.Controls.Add(this.aGbGegevens);
+            this.groupBox1.Location = new System.Drawing.Point(221, 58);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(630, 385);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnKlantToevoegen
+            // 
+            this.btnKlantToevoegen.Location = new System.Drawing.Point(434, 20);
+            this.btnKlantToevoegen.Name = "btnKlantToevoegen";
+            this.btnKlantToevoegen.Size = new System.Drawing.Size(190, 25);
+            this.btnKlantToevoegen.TabIndex = 5;
+            this.btnKlantToevoegen.Text = "Klant Toevoegen";
+            this.btnKlantToevoegen.UseVisualStyleBackColor = true;
+            // 
+            // btnVerwijder
+            // 
+            this.btnVerwijder.Location = new System.Drawing.Point(7, 20);
+            this.btnVerwijder.Name = "btnVerwijder";
+            this.btnVerwijder.Size = new System.Drawing.Size(100, 25);
+            this.btnVerwijder.TabIndex = 4;
+            this.btnVerwijder.Text = "Verwijder";
+            this.btnVerwijder.UseVisualStyleBackColor = true;
+            this.btnVerwijder.Visible = false;
+            // 
+            // btnWijzig
+            // 
+            this.btnWijzig.Location = new System.Drawing.Point(118, 20);
+            this.btnWijzig.Name = "btnWijzig";
+            this.btnWijzig.Size = new System.Drawing.Size(100, 25);
+            this.btnWijzig.TabIndex = 3;
+            this.btnWijzig.Text = "Wijzig";
+            this.btnWijzig.UseVisualStyleBackColor = true;
+            this.btnWijzig.Visible = false;
+            // 
+            // aGbGegevens
+            // 
+            this.aGbGegevens.Controls.Add(this.txtTel);
+            this.aGbGegevens.Controls.Add(this.txtEmail);
+            this.aGbGegevens.Controls.Add(this.txtPlaats);
+            this.aGbGegevens.Controls.Add(this.txtPostcode);
+            this.aGbGegevens.Controls.Add(this.txtAdres);
+            this.aGbGegevens.Controls.Add(this.txtNaam);
+            this.aGbGegevens.Controls.Add(this.label3);
+            this.aGbGegevens.Controls.Add(this.label2);
+            this.aGbGegevens.Controls.Add(this.label1);
+            this.aGbGegevens.Controls.Add(this.aLabelTel);
+            this.aGbGegevens.Controls.Add(this.aLabelNaam);
+            this.aGbGegevens.Controls.Add(this.aLabelEmail);
+            this.aGbGegevens.Location = new System.Drawing.Point(6, 56);
+            this.aGbGegevens.Name = "aGbGegevens";
+            this.aGbGegevens.Size = new System.Drawing.Size(218, 183);
+            this.aGbGegevens.TabIndex = 2;
+            this.aGbGegevens.TabStop = false;
+            this.aGbGegevens.Visible = false;
+            // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(112, 148);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.ReadOnly = true;
+            this.txtTel.Size = new System.Drawing.Size(100, 20);
+            this.txtTel.TabIndex = 2;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(112, 122);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.TabIndex = 2;
+            // 
+            // txtNaam
+            // 
+            this.txtNaam.Location = new System.Drawing.Point(112, 18);
+            this.txtNaam.Name = "txtNaam";
+            this.txtNaam.ReadOnly = true;
+            this.txtNaam.Size = new System.Drawing.Size(100, 20);
+            this.txtNaam.TabIndex = 2;
+            // 
+            // aLabelTel
+            // 
+            this.aLabelTel.AutoSize = true;
+            this.aLabelTel.Location = new System.Drawing.Point(5, 151);
+            this.aLabelTel.Name = "aLabelTel";
+            this.aLabelTel.Size = new System.Drawing.Size(22, 13);
+            this.aLabelTel.TabIndex = 0;
+            this.aLabelTel.Text = "Tel";
+            // 
+            // aLabelNaam
+            // 
+            this.aLabelNaam.AutoSize = true;
+            this.aLabelNaam.Location = new System.Drawing.Point(6, 21);
+            this.aLabelNaam.Name = "aLabelNaam";
+            this.aLabelNaam.Size = new System.Drawing.Size(35, 13);
+            this.aLabelNaam.TabIndex = 0;
+            this.aLabelNaam.Text = "Naam";
+            // 
+            // aLabelEmail
+            // 
+            this.aLabelEmail.AutoSize = true;
+            this.aLabelEmail.Location = new System.Drawing.Point(5, 125);
+            this.aLabelEmail.Name = "aLabelEmail";
+            this.aLabelEmail.Size = new System.Drawing.Size(36, 13);
+            this.aLabelEmail.TabIndex = 0;
+            this.aLabelEmail.Text = "E-Mail";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Adres";
+            // 
+            // txtAdres
+            // 
+            this.txtAdres.Location = new System.Drawing.Point(112, 44);
+            this.txtAdres.Name = "txtAdres";
+            this.txtAdres.ReadOnly = true;
+            this.txtAdres.Size = new System.Drawing.Size(100, 20);
+            this.txtAdres.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Postcode";
+            // 
+            // txtPostcode
+            // 
+            this.txtPostcode.Location = new System.Drawing.Point(112, 70);
+            this.txtPostcode.Name = "txtPostcode";
+            this.txtPostcode.ReadOnly = true;
+            this.txtPostcode.Size = new System.Drawing.Size(100, 20);
+            this.txtPostcode.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Plaats";
+            // 
+            // txtPlaats
+            // 
+            this.txtPlaats.Location = new System.Drawing.Point(112, 96);
+            this.txtPlaats.Name = "txtPlaats";
+            this.txtPlaats.ReadOnly = true;
+            this.txtPlaats.Size = new System.Drawing.Size(100, 20);
+            this.txtPlaats.TabIndex = 2;
             // 
             // Klanten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.aGbKlanten);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Klanten";
             this.Text = "Klanten";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.aGbKlanten.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.aGbGegevens.ResumeLayout(false);
+            this.aGbGegevens.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,10 +344,31 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem Klant;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem factuurToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem plattegrondToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logUitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem klantenMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reserveringenMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem factuurMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plattegrondMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logUitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem werknemersMenuItem;
+        private System.Windows.Forms.GroupBox aGbKlanten;
+        private System.Windows.Forms.Button btnLaadKlant;
+        private System.Windows.Forms.ListBox aLbKlanten;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnKlantToevoegen;
+        private System.Windows.Forms.Button btnVerwijder;
+        private System.Windows.Forms.Button btnWijzig;
+        private System.Windows.Forms.GroupBox aGbGegevens;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtNaam;
+        private System.Windows.Forms.Label aLabelTel;
+        private System.Windows.Forms.Label aLabelNaam;
+        private System.Windows.Forms.Label aLabelEmail;
+        private System.Windows.Forms.TextBox txtPlaats;
+        private System.Windows.Forms.TextBox txtPostcode;
+        private System.Windows.Forms.TextBox txtAdres;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -14,17 +14,11 @@ namespace LaRustique
     public partial class Werknemers : Form
     {
         private string _ID, _naam, _email, _tel, _admin;
-        public Werknemers()
+        public Werknemers(bool admin)
         {
             InitializeComponent();
             laadWerknemersLb(aLbWerknemers);
             aLbWerknemers.Refresh();
-        }
-
-        private void btnWerknmrToevoegen_Click(object sender, EventArgs e)
-        {
-            WerknemerToevoegen x = new WerknemerToevoegen();
-            x.ShowDialog();
         }
 
         private void logUitMenuItem_Click(object sender, EventArgs e)
@@ -38,11 +32,18 @@ namespace LaRustique
                 this.Close();
             }
         }
+
+        private void btnWerknmrToevoegen_Click(object sender, EventArgs e)
+        {
+            WerknemerToevoegen x = new WerknemerToevoegen();
+            x.ShowDialog();
+            laadWerknemersLb(aLbWerknemers);
+        }
         /// <summary>
         /// Haalt werknemers uit db
         /// </summary>
         /// <returns>Listbox ID - naam  - email - admin</returns>
-        private static ListBox laadWerknemersLb(ListBox lBox)
+        private static ListBox laadWerknemersLb(ListBox lb)
         {
             using (MySqlConnection con = Database.conBuilder())
             {
@@ -53,13 +54,12 @@ namespace LaRustique
                 {
                     while (myReader.Read())
                     {
-                        lBox.Items.Add(myReader[0]);
+                        lb.Items.Add(myReader[0]);
                     }
                 }
-                return lBox;
             }
+            return lb;
         }
-
         private void btnLaadGegevens_Click(object sender, EventArgs e)
         {
             string naam;
@@ -128,6 +128,7 @@ namespace LaRustique
             {
                 aLbWerknemers.Items.Clear();
                 laadWerknemersLb(aLbWerknemers);
+                aLbWerknemers.Refresh();
             }
         }
     }

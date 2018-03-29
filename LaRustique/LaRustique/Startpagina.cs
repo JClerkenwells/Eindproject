@@ -12,6 +12,7 @@ namespace LaRustique
 {
     public partial class Startpagina : Form
     {
+        private bool _admin;
         public Startpagina(string naam, string email, bool admin)
         {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace LaRustique
             {
                 werknemersMenuItem.Visible = true;
             }
+            //Waardes om mee te geven
+            _admin = admin;
         }
 
         private void logUitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,7 +42,7 @@ namespace LaRustique
 
         private void Klant_Click(object sender, EventArgs e)
         {
-            Klanten x = new Klanten();
+            Klanten x = new Klanten(_admin);
             this.Hide();
             x.ShowDialog();
             this.Close();
@@ -47,7 +50,7 @@ namespace LaRustique
 
         private void werknemersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Werknemers x = new Werknemers();
+            Werknemers x = new Werknemers(_admin);
             this.Hide();
             x.ShowDialog();
             this.Close();

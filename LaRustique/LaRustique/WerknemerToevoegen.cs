@@ -21,6 +21,16 @@ namespace LaRustique
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
             int nmr, admin;
+
+            #region Check Gegevens
+            //Check of naam leeg is
+            if (txtNaam.Text == "")
+            {
+                MessageBox.Show("Voer een naam in");
+                return;
+            }
+            
+            //Check of tel een nummer is
             try
             {
                 nmr = Convert.ToInt32(txtTel.Text);
@@ -45,7 +55,7 @@ namespace LaRustique
                 MessageBox.Show("Voer een geldige email in");
                 return;
             }
-
+            #endregion
             //Check of admin is
             if (aRbAdminJa.Checked) { admin = 1; }
             else { admin = 0; }
